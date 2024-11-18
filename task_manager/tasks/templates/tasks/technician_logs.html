@@ -1,0 +1,9 @@
+<h2>Technician Logs</h2>
+<ul>
+    {% for log in logs %}
+        <li>{{ log.date }}: {{ log.tasks_completed }}</li>
+        {% if log.notes %}
+            <p>Notes: {{ log.notes }}</p>
+        {% endif %}
+    {% endfor %}
+</ul>

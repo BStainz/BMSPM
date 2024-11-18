@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">{{ project.name }}</h1>
+<p><strong>Description:</strong> {{ project.description }}</p>
+<p><strong>Created By:</strong> {{ project.created_by }}</p>
+<p><strong>Created At:</strong> {{ project.created_at }}</p>
+
+<h2 class="text-xl font-bold mt-6">Tasks</h2>
+<ul>
+    {% for task in tasks %}
+        <li>{{ task.title }} - {{ task.status }} ({{ task.deadline }})</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_task' project.id %}" class="bg-blue-500 text-white px-4 py-2 rounded">Create Task</a>
+
+<h2 class="text-xl font-bold mt-6">Resources</h2>
+<ul>
+    {% for resource in resources %}
+        <li>{{ resource.name }} - {{ resource.quantity }} ({{ resource.type }})</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_resource' project.id %}" class="bg-blue-500 text-white px-4 py-2 rounded">Add Resource</a>
+
+<h2 class="text-xl font-bold mt-6">Files</h2>
+<ul>
+    {% for file in files %}
+        <li>
+            <a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_file' project.id %}" class="bg-blue-500 text-white px-4 py-2 rounded">Upload File</a>
+{% endblock %}

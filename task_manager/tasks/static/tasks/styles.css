@@ -1,0 +1,58 @@
+/* tasks/static/tasks/styles.css */
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+h1, h2, h3 {
+    color: #1a73e8;
+}
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #005cb2;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;    /* Use flexbox for better alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: space-between; /* Space elements evenly */
+}
+
+li a {  /* Style links within list items */
+    text-decoration: none;
+    color: #333;
+}
+
+li a:hover { /* Add hover effect */
+    text-decoration: underline;
+}
+
+.edit-delete-links {  /* Group edit/delete links */
+    white-space: nowrap; /* Prevents wrapping to a new line */
+    margin-left: auto;      /* Push to the right side */
+}
+
+.edit-delete-links a {
+     margin-left: 10px;   /* Space between links */
+}
+
+.empty-message { /* Style the empty list message*/
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}

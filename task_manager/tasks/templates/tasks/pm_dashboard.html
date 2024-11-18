@@ -1,0 +1,29 @@
+<!-- templates/tasks/pm_dashboard.html -->
+<h2>PM Dashboard</h2>
+
+{% if out_of_office %}
+<div class="banner">
+    <h3>Upcoming Out-of-Office Days</h3>
+    <ul>
+        {% for day in out_of_office %}
+            <li>{{ day.date }}: {{ day.reason }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<h3>Projects</h3>
+<ul>
+    {% for project in projects %}
+        <li>
+            <a href="{% url 'project_dashboard' project.id %}">{{ project.name }}</a> - {{ project.status }}
+        </li>
+    {% endfor %}
+</ul>
+
+<h3>Notifications</h3>
+<ul>
+    {% for notification in notifications %}
+        <li>{{ notification.message }}</li>
+    {% endfor %}
+</ul>
